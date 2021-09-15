@@ -1,6 +1,8 @@
+import 'package:flash_chat/constants.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
+  static String id = "Login_screen";
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -16,10 +18,12 @@ class _LoginScreenState extends State<LoginScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Container(
+            Hero(
+              tag:'logo',
+            child:Container(
               height: 200.0,
               child: Image.asset('images/logo.png'),
-            ),
+            )),
             SizedBox(
               height: 48.0,
             ),
@@ -27,23 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
               onChanged: (value) {
                 //Do something with the user input.
               },
-              decoration: InputDecoration(
-                hintText: 'Enter your email',
-                contentPadding:
-                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(32.0)),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide:
-                      BorderSide(color: Colors.lightBlueAccent, width: 1.0),
-                  borderRadius: BorderRadius.all(Radius.circular(32.0)),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide:
-                      BorderSide(color: Colors.lightBlueAccent, width: 2.0),
-                  borderRadius: BorderRadius.all(Radius.circular(32.0)),
-                ),
+              decoration: kInputDecoration.copyWith(hintText: 'Enter your email',
               ),
             ),
             SizedBox(
@@ -53,24 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
               onChanged: (value) {
                 //Do something with the user input.
               },
-              decoration: InputDecoration(
-                hintText: 'Enter your password.',
-                contentPadding:
-                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(32.0)),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide:
-                      BorderSide(color: Colors.lightBlueAccent, width: 1.0),
-                  borderRadius: BorderRadius.all(Radius.circular(32.0)),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide:
-                      BorderSide(color: Colors.lightBlueAccent, width: 2.0),
-                  borderRadius: BorderRadius.all(Radius.circular(32.0)),
-                ),
-              ),
+              decoration: kInputDecoration.copyWith(hintText: 'Enter your password'),
             ),
             SizedBox(
               height: 24.0,
